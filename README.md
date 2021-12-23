@@ -1,6 +1,7 @@
 # Terraform module: AWS ELB
 
-[![Build Status](https://travis-ci.org/Flaconi/terraform-aws-elb.svg?branch=master)](https://travis-ci.org/Flaconi/terraform-aws-elb)
+[![Lint Status](https://github.com/Flaconi/terraform-aws-elb/actions/workflows/lint.yml/badge.svg)](https://github.com/Flaconi/terraform-aws-elb/actions/workflows/lint.yml)
+[![Test Status](https://github.com/Flaconi/terraform-aws-elb/actions/workflows/test.yml/badge.svg)](https://github.com/Flaconi/terraform-aws-elb/actions/workflows/test.yml)
 [![Tag](https://img.shields.io/github/tag/Flaconi/terraform-aws-elb.svg)](https://github.com/Flaconi/terraform-aws-elb/releases)
 [![Terraform](https://img.shields.io/badge/Terraform--registry-aws--elb-brightgreen.svg)](https://registry.terraform.io/modules/Flaconi/elb/aws/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
