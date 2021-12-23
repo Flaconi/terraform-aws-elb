@@ -29,7 +29,7 @@ Note that this example may create resources which cost money. Run terraform dest
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v2.78.0 |
+| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v3.11.0 |
 | <a name="module_elb"></a> [elb](#module\_elb) | ../../ | n/a |
 
 ## Resources
