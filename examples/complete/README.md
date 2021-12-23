@@ -17,7 +17,7 @@ Note that this example may create resources which cost money. Run terraform dest
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
 
 ## Providers
 

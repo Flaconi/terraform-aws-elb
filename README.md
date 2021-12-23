@@ -42,7 +42,7 @@ module "elb" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
 
 ## Providers
 
@@ -72,27 +72,27 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_enable"></a> [enable](#input\_enable) | Whether or not to enable this module. This is required due to the lack of using count for modules. Set it to false to disable the creation of the ELB. Defaults to true | `bool` | `true` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `any` | n/a | yes |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `any` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `string` | n/a | yes |
+| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `string` | n/a | yes |
 | <a name="input_asg_name"></a> [asg\_name](#input\_asg\_name) | Name of the auto scaling group to attach to. If this value is empty, no attachment will be done and is be left to the end-user via custom 'aws\_autoscaling\_group' or 'aws\_autoscaling\_attachment' definitions. | `string` | `""` | no |
 | <a name="input_inbound_cidr_blocks"></a> [inbound\_cidr\_blocks](#input\_inbound\_cidr\_blocks) | List of CIDR's that are allowed to access the ELB. | `list(string)` | n/a | yes |
 | <a name="input_security_group_names"></a> [security\_group\_names](#input\_security\_group\_names) | List of one or more security groups to be added to the load balancer | `list(string)` | `[]` | no |
 | <a name="input_internal"></a> [internal](#input\_internal) | If true, ELB will be an internal ELB. | `bool` | `false` | no |
 | <a name="input_cross_zone_load_balancing"></a> [cross\_zone\_load\_balancing](#input\_cross\_zone\_load\_balancing) | Enable cross-zone load balancing. | `bool` | `true` | no |
-| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `string` | `"60"` | no |
+| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `number` | `60` | no |
 | <a name="input_connection_draining"></a> [connection\_draining](#input\_connection\_draining) | Boolean to enable connection draining. | `bool` | `false` | no |
-| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `string` | `"300"` | no |
-| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `any` | n/a | yes |
-| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `any` | n/a | yes |
+| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `number` | `300` | no |
+| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `number` | n/a | yes |
+| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `number` | n/a | yes |
 | <a name="input_lb_protocol"></a> [lb\_protocol](#input\_lb\_protocol) | On what protocol should the load balancer respond. | `string` | `"TCP"` | no |
 | <a name="input_instance_protocol"></a> [instance\_protocol](#input\_instance\_protocol) | On what protocol does the instance respond. | `string` | `"TCP"` | no |
 | <a name="input_ssl_certificate_id"></a> [ssl\_certificate\_id](#input\_ssl\_certificate\_id) | "The ARN of an SSL certificate you have uploaded to AWS IAM or<br>ACM. Only valid when lb\_protocol is either HTTPS or SSL" | `string` | `""` | no |
-| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `string` | `"10"` | no |
-| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `string` | `"2"` | no |
+| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `number` | `10` | no |
+| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `number` | `2` | no |
 | <a name="input_target"></a> [target](#input\_target) | The target of the check. If unset, will default to 'instance\_protocol:instance\_port' for TCP/SLL and 'instance\_protocol:instance\_port/' for HTTP/HTTPS. | `string` | `""` | no |
-| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `string` | `"30"` | no |
-| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `string` | `"5"` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `any` | n/a | yes |
+| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `number` | `30` | no |
+| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `number` | `5` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources. | `map(string)` | `{}` | no |
 | <a name="input_sg_name_suffix_elb"></a> [sg\_name\_suffix\_elb](#input\_sg\_name\_suffix\_elb) | Name suffix to append to the ELB security group. | `string` | `"-elb"` | no |
 | <a name="input_route53_public_dns_name"></a> [route53\_public\_dns\_name](#input\_route53\_public\_dns\_name) | If set, the ELB will be assigned this public DNS name via Route53. | `string` | `""` | no |
@@ -119,7 +119,7 @@ No modules.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
 
 ## Providers
 
@@ -149,27 +149,27 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_enable"></a> [enable](#input\_enable) | Whether or not to enable this module. This is required due to the lack of using count for modules. Set it to false to disable the creation of the ELB. Defaults to true | `bool` | `true` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `any` | n/a | yes |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `any` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `string` | n/a | yes |
+| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `string` | n/a | yes |
 | <a name="input_asg_name"></a> [asg\_name](#input\_asg\_name) | Name of the auto scaling group to attach to. If this value is empty, no attachment will be done and is be left to the end-user via custom 'aws\_autoscaling\_group' or 'aws\_autoscaling\_attachment' definitions. | `string` | `""` | no |
 | <a name="input_inbound_cidr_blocks"></a> [inbound\_cidr\_blocks](#input\_inbound\_cidr\_blocks) | List of CIDR's that are allowed to access the ELB. | `list(string)` | n/a | yes |
 | <a name="input_security_group_names"></a> [security\_group\_names](#input\_security\_group\_names) | List of one or more security groups to be added to the load balancer | `list(string)` | `[]` | no |
 | <a name="input_internal"></a> [internal](#input\_internal) | If true, ELB will be an internal ELB. | `bool` | `false` | no |
 | <a name="input_cross_zone_load_balancing"></a> [cross\_zone\_load\_balancing](#input\_cross\_zone\_load\_balancing) | Enable cross-zone load balancing. | `bool` | `true` | no |
-| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `string` | `"60"` | no |
+| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `number` | `60` | no |
 | <a name="input_connection_draining"></a> [connection\_draining](#input\_connection\_draining) | Boolean to enable connection draining. | `bool` | `false` | no |
-| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `string` | `"300"` | no |
-| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `any` | n/a | yes |
-| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `any` | n/a | yes |
+| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `number` | `300` | no |
+| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `number` | n/a | yes |
+| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `number` | n/a | yes |
 | <a name="input_lb_protocol"></a> [lb\_protocol](#input\_lb\_protocol) | On what protocol should the load balancer respond. | `string` | `"TCP"` | no |
 | <a name="input_instance_protocol"></a> [instance\_protocol](#input\_instance\_protocol) | On what protocol does the instance respond. | `string` | `"TCP"` | no |
 | <a name="input_ssl_certificate_id"></a> [ssl\_certificate\_id](#input\_ssl\_certificate\_id) | "The ARN of an SSL certificate you have uploaded to AWS IAM or<br>ACM. Only valid when lb\_protocol is either HTTPS or SSL" | `string` | `""` | no |
-| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `string` | `"10"` | no |
-| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `string` | `"2"` | no |
+| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `number` | `10` | no |
+| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `number` | `2` | no |
 | <a name="input_target"></a> [target](#input\_target) | The target of the check. If unset, will default to 'instance\_protocol:instance\_port' for TCP/SLL and 'instance\_protocol:instance\_port/' for HTTP/HTTPS. | `string` | `""` | no |
-| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `string` | `"30"` | no |
-| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `string` | `"5"` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `any` | n/a | yes |
+| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `number` | `30` | no |
+| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `number` | `5` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources. | `map(string)` | `{}` | no |
 | <a name="input_sg_name_suffix_elb"></a> [sg\_name\_suffix\_elb](#input\_sg\_name\_suffix\_elb) | Name suffix to append to the ELB security group. | `string` | `"-elb"` | no |
 | <a name="input_route53_public_dns_name"></a> [route53\_public\_dns\_name](#input\_route53\_public\_dns\_name) | If set, the ELB will be assigned this public DNS name via Route53. | `string` | `""` | no |
@@ -195,7 +195,7 @@ No modules.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
 
 ## Providers
 
@@ -225,21 +225,21 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_inbound_cidr_blocks"></a> [inbound\_cidr\_blocks](#input\_inbound\_cidr\_blocks) | List of CIDR's that are allowed to access the ELB. | `list(string)` | n/a | yes |
-| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `any` | n/a | yes |
-| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `any` | n/a | yes |
-| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `any` | n/a | yes |
-| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `any` | n/a | yes |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `any` | n/a | yes |
+| <a name="input_instance_port"></a> [instance\_port](#input\_instance\_port) | On what port does the ELB access the instances. | `number` | n/a | yes |
+| <a name="input_lb_port"></a> [lb\_port](#input\_lb\_port) | On what port do you want to access the ELB. | `number` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the ELB and security group resources. | `string` | n/a | yes |
+| <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | List of subnet ids to place the ELB into. | `string` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC to add this ELB to. | `string` | n/a | yes |
 | <a name="input_asg_name"></a> [asg\_name](#input\_asg\_name) | Name of the auto scaling group to attach to. If this value is empty, no attachment will be done and is be left to the end-user via custom 'aws\_autoscaling\_group' or 'aws\_autoscaling\_attachment' definitions. | `string` | `""` | no |
 | <a name="input_connection_draining"></a> [connection\_draining](#input\_connection\_draining) | Boolean to enable connection draining. | `bool` | `false` | no |
-| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `string` | `"300"` | no |
+| <a name="input_connection_draining_timeout"></a> [connection\_draining\_timeout](#input\_connection\_draining\_timeout) | The time in seconds to allow for connections to drain | `number` | `300` | no |
 | <a name="input_cross_zone_load_balancing"></a> [cross\_zone\_load\_balancing](#input\_cross\_zone\_load\_balancing) | Enable cross-zone load balancing. | `bool` | `true` | no |
 | <a name="input_enable"></a> [enable](#input\_enable) | Whether or not to enable this module. This is required due to the lack of using count for modules. Set it to false to disable the creation of the ELB. Defaults to true | `bool` | `true` | no |
-| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `string` | `"10"` | no |
-| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `string` | `"60"` | no |
+| <a name="input_healthy_threshold"></a> [healthy\_threshold](#input\_healthy\_threshold) | The number of checks before the instance is declared healthy. | `number` | `10` | no |
+| <a name="input_idle_timeout"></a> [idle\_timeout](#input\_idle\_timeout) | The time in seconds that the connection is allowed to be idle. | `number` | `60` | no |
 | <a name="input_instance_protocol"></a> [instance\_protocol](#input\_instance\_protocol) | On what protocol does the instance respond. | `string` | `"TCP"` | no |
 | <a name="input_internal"></a> [internal](#input\_internal) | If true, ELB will be an internal ELB. | `bool` | `false` | no |
-| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `string` | `"30"` | no |
+| <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `number` | `30` | no |
 | <a name="input_lb_protocol"></a> [lb\_protocol](#input\_lb\_protocol) | On what protocol should the load balancer respond. | `string` | `"TCP"` | no |
 | <a name="input_private_dns_evaluate_target_health"></a> [private\_dns\_evaluate\_target\_health](#input\_private\_dns\_evaluate\_target\_health) | Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. | `bool` | `true` | no |
 | <a name="input_public_dns_evaluate_target_health"></a> [public\_dns\_evaluate\_target\_health](#input\_public\_dns\_evaluate\_target\_health) | Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. | `bool` | `true` | no |
@@ -250,8 +250,8 @@ No modules.
 | <a name="input_ssl_certificate_id"></a> [ssl\_certificate\_id](#input\_ssl\_certificate\_id) | "The ARN of an SSL certificate you have uploaded to AWS IAM or<br>ACM. Only valid when lb\_protocol is either HTTPS or SSL" | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources. | `map(string)` | `{}` | no |
 | <a name="input_target"></a> [target](#input\_target) | The target of the check. If unset, will default to 'instance\_protocol:instance\_port' for TCP/SLL and 'instance\_protocol:instance\_port/' for HTTP/HTTPS. | `string` | `""` | no |
-| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `string` | `"5"` | no |
-| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `string` | `"2"` | no |
+| <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `number` | `5` | no |
+| <a name="input_unhealthy_threshold"></a> [unhealthy\_threshold](#input\_unhealthy\_threshold) | The number of checks before the instance is declared unhealthy. | `number` | `2` | no |
 
 ## Outputs
 
