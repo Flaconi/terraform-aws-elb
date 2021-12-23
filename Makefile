@@ -32,7 +32,7 @@ LINT_JL_ENABLE = 1
 DELIM_START = <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 DELIM_CLOSE = <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 # What arguments to append to terraform-docs command
-TFDOCS_ARGS = --sort=false
+TFDOCS_ARGS = --sort-by required
 
 
 # -------------------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ _gen-main:
     -e DELIM_START='$(DELIM_START)' \
     -e DELIM_CLOSE='$(DELIM_CLOSE)' \
 		cytopia/terraform-docs:$(TFDOCS_VERSION) \
-		terraform-docs-replace --sort-by required markdown --indent 2 $(TFDOCS_ARGS) README.md; then \
+		terraform-docs-replace markdown --show requirements,providers,resources $(TFDOCS_ARGS) README.md; then \
 		echo "OK"; \
 	else \
 		echo "Failed"; \
@@ -132,7 +132,7 @@ _gen-main:
 		-e DELIM_START='<!-- TFDOCS_INPUTS_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_INPUTS_END -->' \
 		cytopia/terraform-docs:$(TFDOCS_VERSION) \
-		terraform-docs-replace --sort-by required markdown --indent 2 $(TFDOCS_ARGS) README.md; then \
+		terraform-docs-replace markdown --show inputs $(TFDOCS_ARGS) README.md; then \
 		echo "OK"; \
 	else \
 		echo "Failed"; \
@@ -143,7 +143,7 @@ _gen-main:
 		-e DELIM_START='<!-- TFDOCS_OUTPUTS_START -->' \
 		-e DELIM_CLOSE='<!-- TFDOCS_OUTPUTS_END -->' \
 		cytopia/terraform-docs:$(TFDOCS_VERSION) \
-		terraform-docs-replace --sort-by required markdown README.md; then \
+		terraform-docs-replace markdown --show outputs $(TFDOCS_ARGS) README.md; then \
 		echo "OK"; \
 	else \
 		echo "Failed"; \
@@ -162,7 +162,7 @@ _gen-examples:
 			-e DELIM_START='$(DELIM_START)' \
 			-e DELIM_CLOSE='$(DELIM_CLOSE)' \
 			cytopia/terraform-docs:$(TFDOCS_VERSION) \
-			terraform-docs-replace $(TFDOCS_ARGS) md $${DOCKER_PATH}/README.md; then \
+			terraform-docs-replace markdown $(TFDOCS_ARGS) $${DOCKER_PATH}/README.md; then \
 			echo "OK"; \
 		else \
 			echo "Failed"; \
@@ -182,7 +182,7 @@ _gen-modules:
 			-e DELIM_START='$(DELIM_START)' \
 			-e DELIM_CLOSE='$(DELIM_CLOSE)' \
 			cytopia/terraform-docs:$(TFDOCS_VERSION) \
-			terraform-docs-replace $(TFDOCS_ARGS) md $${DOCKER_PATH}/README.md; then \
+			terraform-docs-replace markdown $(TFDOCS_ARGS) $${DOCKER_PATH}/README.md; then \
 			echo "OK"; \
 		else \
 			echo "Failed"; \
