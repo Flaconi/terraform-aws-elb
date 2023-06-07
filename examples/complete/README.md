@@ -17,7 +17,7 @@ Note that this example may create resources which cost money. Run terraform dest
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 
 ## Providers
 
@@ -29,7 +29,7 @@ Note that this example may create resources which cost money. Run terraform dest
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v3.11.0 |
+| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v5.0.0 |
 | <a name="module_elb"></a> [elb](#module\_elb) | ../../ | n/a |
 
 ## Resources
