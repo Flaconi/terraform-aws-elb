@@ -77,13 +77,14 @@ test: _pull-tf
 		echo "------------------------------------------------------------"; \
 		echo "# Terraform init"; \
 		echo "------------------------------------------------------------"; \
-		if docker run $$(tty -s && echo "-it" || echo) --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:$(TF_VERSION) \
+		if docker run $$(tty -s && echo "-it" || echo) --rm --network host -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:$(TF_VERSION) \
 			init \
-				-upgrade=true \
+				-lock=false \
+				-upgrade \
 				-reconfigure \
 				-input=false \
-				-get=true \
-				.; then \
+				-get=true; \
+		then \
 			echo "OK"; \
 		else \
 			echo "Failed"; \
