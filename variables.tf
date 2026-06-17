@@ -182,15 +182,3 @@ variable "route53_private_dns_name" {
   type        = string
   default     = ""
 }
-
-variable "public_dns_evaluate_target_health" {
-  description = "Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set."
-  type        = bool
-  default     = true
-}
-
-variable "private_dns_evaluate_target_health" {
-  description = "Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set."
-  type        = bool
-  default     = true
-}

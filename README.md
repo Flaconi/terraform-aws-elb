@@ -44,13 +44,13 @@ module "elb" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6 |
 
 ## Resources
 
@@ -87,13 +87,11 @@ module "elb" {
 | <a name="input_internal"></a> [internal](#input\_internal) | If true, ELB will be an internal ELB. | `bool` | `false` | no |
 | <a name="input_interval"></a> [interval](#input\_interval) | The interval between checks. | `number` | `30` | no |
 | <a name="input_lb_protocol"></a> [lb\_protocol](#input\_lb\_protocol) | On what protocol should the load balancer respond. | `string` | `"TCP"` | no |
-| <a name="input_private_dns_evaluate_target_health"></a> [private\_dns\_evaluate\_target\_health](#input\_private\_dns\_evaluate\_target\_health) | Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. | `bool` | `true` | no |
-| <a name="input_public_dns_evaluate_target_health"></a> [public\_dns\_evaluate\_target\_health](#input\_public\_dns\_evaluate\_target\_health) | Set to true if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. | `bool` | `true` | no |
 | <a name="input_route53_private_dns_name"></a> [route53\_private\_dns\_name](#input\_route53\_private\_dns\_name) | If set, the ELB will be assigned this private DNS name via Route53. | `string` | `""` | no |
 | <a name="input_route53_public_dns_name"></a> [route53\_public\_dns\_name](#input\_route53\_public\_dns\_name) | If set, the ELB will be assigned this public DNS name via Route53. | `string` | `""` | no |
 | <a name="input_security_group_names"></a> [security\_group\_names](#input\_security\_group\_names) | List of one or more security groups to be added to the load balancer | `list(string)` | `[]` | no |
 | <a name="input_sg_name_suffix_elb"></a> [sg\_name\_suffix\_elb](#input\_sg\_name\_suffix\_elb) | Name suffix to append to the ELB security group. | `string` | `"-elb"` | no |
-| <a name="input_ssl_certificate_id"></a> [ssl\_certificate\_id](#input\_ssl\_certificate\_id) | "The ARN of an SSL certificate you have uploaded to AWS IAM or<br>ACM. Only valid when lb\_protocol is either HTTPS or SSL" | `string` | `""` | no |
+| <a name="input_ssl_certificate_id"></a> [ssl\_certificate\_id](#input\_ssl\_certificate\_id) | "The ARN of an SSL certificate you have uploaded to AWS IAM or<br/>ACM. Only valid when lb\_protocol is either HTTPS or SSL" | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to all resources. | `map(string)` | `{}` | no |
 | <a name="input_target"></a> [target](#input\_target) | The target of the check. If unset, will default to 'instance\_protocol:instance\_port' for TCP/SLL and 'instance\_protocol:instance\_port/' for HTTP/HTTPS. | `string` | `""` | no |
 | <a name="input_timeout"></a> [timeout](#input\_timeout) | The length of time before the check times out. | `number` | `5` | no |
