@@ -29,7 +29,7 @@ Note that this example may create resources which cost money. Run terraform dest
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v5.0.0 |
+| <a name="module_aws_vpc"></a> [aws\_vpc](#module\_aws\_vpc) | github.com/terraform-aws-modules/terraform-aws-vpc | v6.6.1 |
 | <a name="module_elb"></a> [elb](#module\_elb) | ../../ | n/a |
 
 ## Resources
@@ -46,8 +46,8 @@ Note that this example may create resources which cost money. Run terraform dest
 |------|-------------|------|---------|:--------:|
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Name of SSH key on AWS | `string` | `""` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name(-prefix) to prepend/apply to all Name tags on all VPC resources | `string` | `"elb-complete"` | no |
-| <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A map of additional tags to apply to all private subnets | `map(string)` | <pre>{<br>  "Visibility": "private"<br>}</pre> | no |
-| <a name="input_public_subnet_tags"></a> [public\_subnet\_tags](#input\_public\_subnet\_tags) | A map of additional tags to apply to all public subnets | `map(string)` | <pre>{<br>  "Visibility": "public"<br>}</pre> | no |
+| <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | A map of additional tags to apply to all private subnets | `map(string)` | <pre>{<br/>  "Visibility": "private"<br/>}</pre> | no |
+| <a name="input_public_subnet_tags"></a> [public\_subnet\_tags](#input\_public\_subnet\_tags) | A map of additional tags to apply to all public subnets | `map(string)` | <pre>{<br/>  "Visibility": "public"<br/>}</pre> | no |
 
 ## Outputs
 
